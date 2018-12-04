@@ -1,0 +1,4264 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_ZABBIX",
+      "label": "ZABBIX",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "alexanderzobnin-zabbix-datasource",
+      "pluginName": "Zabbix"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "alexanderzobnin-zabbix-datasource",
+      "name": "Zabbix",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.3.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {
+        "IN": "#1f78c1"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "legend": {
+        "alignAsTable": false,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "SCA__CENTRAL"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "SCA__CENTRAL"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "ACSC - SPO/IP/44900 -  172.16.0.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#447ebc"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "id": 3,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "DC - SP"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0.61"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "DC - SP"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0.61"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DC - SP - BRE/IP/24955 - 172.29.254.254",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 14,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "DC - SUL"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0.8"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "DC - SUL"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0.8"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DC - SUL - BQE/IP/00305 - 172.29.255.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 10,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "Router MPLS-CSSJ"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0.113"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "Router MPLS-CSSJ"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0.113"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CSSJ - RJO/IP/23498 - 172.16.19.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 4
+      },
+      "id": 11,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HST"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0.4"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HST"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0.4"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HST - PTS/IP/03540 - 172.16.28.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 4
+      },
+      "id": 12,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HSJ"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HSJ"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HSJ - CCS/MULTI/60242 - 172.29.3.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#447ebc"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 4
+      },
+      "id": 18,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IN"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HCNSC"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HCNSC"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HCNSC - TRS/IP/00194 - 172.16.32.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 4
+      },
+      "id": 9,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CCSCPT"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CCSCPT"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CSC-PT - PTS/IP/03541 - 172.16.20.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 8
+      },
+      "id": 6,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 3,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSC-SP"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSC-SP"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CSC-SP - SPO/IP/44901 - 172.16.15.1",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#447ebc"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 8
+      },
+      "id": 8,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IN"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSC-JF"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSC-JF"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CSC-JF - JFA/IP/07758 - 172.16.36.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 8
+      },
+      "id": 16,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "ESC"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "ESC"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "ESC - STA/IP/00156 - 172.16.4.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 8
+      },
+      "id": 4,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "LMR"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/1.9"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HAM"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "LMR - GRS/IP/03329 - 172.16.2.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#447ebc"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 12
+      },
+      "id": 5,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HAM"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HAM"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HAM - SPO/IP/44897 - 172.29.4.1",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 4,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 12
+      },
+      "id": 15,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HMRP"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Multilink1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HMRP"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Multilink1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HMRP - MULTI/60117 - 172.16.40.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 12
+      },
+      "id": 20,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HSL"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Multilink1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HSL"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Multilink1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HSL - - 172.16.12.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 12
+      },
+      "id": 17,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "OUT"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSC-GO"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSC-GO"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CSC-GO - PLG/IP/00106 - 172.16.13.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 16
+      },
+      "id": 21,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HEC"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Multilink1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "HEC"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Multilink1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HEC - VTA/IP/05268 - 172.29.2.1",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 16
+      },
+      "id": 19,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "AMB-ITA"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "AMB-ITA"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface Serial0/0/0.1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "AMB-ITA - ITE/IP/00177 - 172.16.11.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 16
+      },
+      "id": 22,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CRI"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CRI"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/0"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CRI - SPO/IP/44895 - 172.16.3.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 16
+      },
+      "id": 23,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSJI"
+          },
+          "item": {
+            "filter": "Incoming traffic on interface GigabitEthernet0/1.105"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Interfaces"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "MPLS"
+          },
+          "host": {
+            "filter": "CSJI"
+          },
+          "item": {
+            "filter": "Outgoing traffic on interface GigabitEthernet0/1.105"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CSJI - RJO/IP/23498 - 172.16.41.250",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 20
+      },
+      "id": 24,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Network Traffic"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "FIREWALLS"
+          },
+          "host": {
+            "filter": "FIREWALL FORTIGATE HSI"
+          },
+          "item": {
+            "filter": "Download LAN"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Network Traffic"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "FIREWALLS"
+          },
+          "host": {
+            "filter": "FIREWALL FORTIGATE HSI"
+          },
+          "item": {
+            "filter": "Upload LAN"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HSI - BNU/IP/01070 - 10.14.0.1",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 20
+      },
+      "id": 25,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Network Traffic"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "FIREWALLS"
+          },
+          "host": {
+            "filter": "FIREWALL FORTIGATE HNSC"
+          },
+          "item": {
+            "filter": "Download LAN"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Network Traffic"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "FIREWALLS"
+          },
+          "host": {
+            "filter": "FIREWALL FORTIGATE HNSC"
+          },
+          "item": {
+            "filter": "Upload LAN"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HNSC - TRO/IP/00308 - 10.13.0.254",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "IN": "#1f78c1",
+        "OUT": "#eab839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_ZABBIX}",
+      "fill": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 20
+      },
+      "id": 26,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": ""
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "application": {
+            "filter": "Network Traffic"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "IN"
+              ],
+              "text": "setAlias(IN)"
+            }
+          ],
+          "group": {
+            "filter": "FIREWALLS"
+          },
+          "host": {
+            "filter": "FIREWALL FORTIGATE HSJ-TIJUCAS"
+          },
+          "item": {
+            "filter": "Download port1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        },
+        {
+          "application": {
+            "filter": "Network Traffic"
+          },
+          "functions": [
+            {
+              "def": {
+                "category": "Alias",
+                "defaultParams": [],
+                "name": "setAlias",
+                "params": [
+                  {
+                    "name": "alias",
+                    "type": "string"
+                  }
+                ]
+              },
+              "params": [
+                "OUT"
+              ],
+              "text": "setAlias(OUT)"
+            }
+          ],
+          "group": {
+            "filter": "FIREWALLS"
+          },
+          "host": {
+            "filter": "FIREWALL FORTIGATE HSJ-TIJUCAS"
+          },
+          "item": {
+            "filter": "Upload port1"
+          },
+          "mode": 0,
+          "options": {
+            "showDisabledItems": false,
+            "skipEmptyValues": false
+          },
+          "refId": "B",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "HSJ-T - TIJ/IP/00137 - 10.15.0.1",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "h",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [
+    "MPLS"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "LINKS MPLS",
+  "uid": "i-6X0Kiik",
+  "version": 56
+}
